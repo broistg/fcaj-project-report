@@ -1,124 +1,52 @@
 ---
 title: "Event 2"
-date: 2024-01-01
+date: 2026-06-13
 weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
+# Technical Summary Report: FCAJ Technical Meetup #2
 
+### Event Overview
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+* **Event Name:** FCAJ Technical Meetup #2 – Cloud Solutions, Security & Migration Best Practices
+* **Date & Time:** Saturday, June 13, 2026 (09:00 – 12:00)
+* **Location:** AWS Vietnam Office / Community Meetup
+* **Role:** Attendee
 
-### Event Objectives
+---
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+### Featured Speakers & Technical Presentations
 
-### Speakers
+1. **Hoàng Trọng – *AWS Cloud Architecture Patterns & System Resilience***
+   * Analyzed high-availability architecture patterns spanning multiple Availability Zones (Multi-AZ).
+   * Discussed disaster recovery strategies (Backup & Restore, Pilot Light, Warm Standby) and auto-scaling practices to ensure business continuity.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+2. **Cường Nguyễn & Đạt Phạm – *Modern Application Development & Cloud Integration***
+   * Shared architectural design patterns for building RESTful microservices and integrating AWS SDKs into containerized applications.
+   * Detailed data decoupling strategies separating high-speed hot storage (DynamoDB) from long-term cold analytical storage (Amazon S3).
 
-### Key Highlights
+3. **Nghi Danh (Hiếu Nghị) – *Cloud Security, Governance & Identity Management***
+   * Presented IAM role delegation principles, attribute-based access control (ABAC), and secrets management using AWS Secrets Manager.
+   * Emphasized logging and compliance auditing using AWS CloudTrail and Amazon CloudWatch to maintain strict governance.
 
-#### Identifying the drawbacks of legacy application architecture
+4. **Kiên & Thọ – *Cloud Migration & Infrastructure Automation Strategies***
+   * Covered cloud migration methodologies (7Rs Framework: Rehost, Replatform, Refactor, etc.) for enterprise workloads.
+   * Demonstrated automated infrastructure provisioning using Infrastructure as Code (IaC) tools and continuous delivery deployment pipelines.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+---
 
-#### Transitioning to modern application architecture – Microservices
+### Key Takeaways & Work Application
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+* **Decoupled Storage Architecture:** Directly applied the hot/cold data segregation principles shared by Cường Nguyễn & Đạt Phạm to design our project's dual storage architecture (DynamoDB for hot interaction data, S3 for cold datasets and ML model artifacts).
+* **IAM & Governance Control:** Implemented strict IAM execution roles for EC2 instances and SageMaker processing jobs to enforce least-privilege security controls.
+* **Cost Efficiency & Resilience:** Incorporated Multi-AZ deployment considerations and AWS Budgets cost guardrails to prevent unbudgeted resource charges.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+---
 
-#### Domain-Driven Design (DDD)
+### Participation Proof
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+![Check-in Proof - Meetup 13/06/2026](/images/4-EventParticipated/Event_6-6-2026_13-6-2026.png)
 
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
-
-### Key Takeaways
-
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
-
-### Event Experience
-
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
-
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> **Attendance Verification:** Check-in confirmation for FCAJ Technical Meetup #2 on June 13, 2026.

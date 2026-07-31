@@ -1,123 +1,54 @@
 ---
 title: "Event 3"
-date: 2024-01-01
+date: 2026-07-25
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
+# Bài thu hoạch kỹ thuật: FCAJ x AI Agent Build Week Hackathon Review
 
+### Tổng quan sự kiện
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+* **Tên sự kiện:** FCAJ x AI Agent Build Week (AABW) Hackathon Review & Trình diễn dự án
+* **Thời gian:** Thứ Bảy, ngày 25/07/2026 (09:00 – 16:30)
+* **Địa điểm:** Văn phòng AWS Việt Nam / Sự kiện Hybrid
+* **Vai trò:** Người tham dự / Thí sinh tham gia
 
-### Mục Đích Của Sự Kiện
+---
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+### Nội dung Review & Trình diễn các dự án Hackathon
 
-### Danh Sách Diễn Giả
+Sự kiện quy tụ các thí sinh tham gia hackathon, các chuyên gia giải pháp AWS và cộng đồng lập trình viên AI để đánh giá, chia sẻ trải nghiệm và trình diễn các dự án được phát triển trong tuần lễ **AI Agent Build Week (AABW)**. Các dự án nổi bật bao gồm:
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+1. **SignalScout – *Hệ thống AI Agent tự chế rút trích tín hiệu thông minh***
+   * **Tổng quan:** Hệ thống AI Agent thông minh có khả năng tự động giám sát các luồng dữ liệu đa kênh, lọc nhiễu và trích xuất các tín hiệu vận hành/thị trường quan trọng.
+   * **Kiến trúc:** Tận dụng khả năng điều phối agent LLM, công cụ cào dữ liệu web, cơ sở dữ liệu vector và webhook thông báo tự động trên hạ tầng AWS.
 
-### Nội Dung Nổi Bật
+2. **Hackathon Journey 3KA – *Hành trình phát triển & Bài học kiến trúc***
+   * **Tổng quan:** Nhóm 3KA chia sẻ toàn bộ hành trình phát triển từ ý tưởng bài toán ban đầu đến khi hoàn thiện sản phẩm AI agent trong thời gian giới hạn của hackathon.
+   * **Kiến trúc & Kinh nghiệm:** Nhấn mạnh các kỹ thuật prompt engineering, cách gọi tool cho agent, quản lý state và kinh nghiệm đóng gói ứng dụng lên AWS.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+3. **SA Professional Native App – *Ứng dụng doanh nghiệp chuẩn Solutions Architecture***
+   * **Tổng quan:** Kiến trúc ứng dụng native doanh nghiệp được thiết kế để tự động hóa các quy trình làm việc phức tạp bằng cách kết hợp cloud-native services và AI tạo sinh.
+   * **Kiến trúc:** Kết hợp điện toán serverless (AWS Lambda), cơ sở dữ liệu quản trị (Amazon DynamoDB) và các mô hình GenAI (Amazon Bedrock) mang lại trải nghiệm mượt mà.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+4. **OneTeam Community Day – *Mô hình phối hợp Multi-Agent & Kết nối cộng đồng***
+   * **Tổng quan:** Trình diễn mô hình phối hợp multi-agent trong đó các agent chuyên biệt hợp tác giải quyết các tác vụ phức tạp từ đầu đến cuối.
+   * **Điểm nổi bật:** Chia sẻ trải nghiệm làm việc nhóm, văn hóa làm việc trong cộng đồng FCAJ và các mẹo thực tiễn để xây dựng ứng dụng AI agent hiệu quả.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+---
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+### Bài học rút ra & Giá trị thực tiễn
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+* **Tư duy thiết kế AI Agent:** Nắm vững các pattern thiết kế AI agent tự chủ với khả năng gọi công cụ (tool calling), quản lý bộ nhớ (memory state) và xử lý rẽ nhánh linh hoạt.
+* **Tạo mẫu nhanh trên AWS:** Học hỏi phương pháp khai thác các dịch vụ AWS managed (Bedrock, SageMaker, Lambda) để nhanh chóng hiện thực hóa và kiểm thử các ý tưởng AI phức tạp.
+* **Kết nối cộng đồng:** Giao lưu, học hỏi cùng các thực tập sinh FCAJ và các mentor AWS, tiếp thu những phản hồi quý báu về kiến trúc hệ thống và định hướng phát triển ứng dụng AI trong thực tế.
 
-#### Domain-Driven Design (DDD)
+---
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Minh chứng tham dự
 
-#### Event-Driven Architecture
+![Selfie Proof - FCAJ x AABW Hackathon Review 25/07/2026](/images/4-EventParticipated/Event_25-7-2026.jpg)
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+> **Xác nhận tham dự:** Ảnh selfie minh chứng tham gia buổi FCAJ x AI Agent Build Week Hackathon Review ngày 25/07/2026.

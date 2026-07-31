@@ -13,8 +13,8 @@ This section collects the source code, demo, official AWS documentation, and rep
 | Resource | Link |
 |---|---|
 | Movie recommendation source code | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
-| Report and workshop repository | [GitHub - movie-project-report](https://github.com/tanghongai1704/movie-project-report) |
-| Published report website | [GitHub Pages - movie-project-report](https://tanghongai1704.github.io/movie-project-report/) |
+| Report and workshop repository | [GitHub - movie-project-report](https://github.com/broistg/fcaj-project-report/) |
+| Published report website | [GitHub Pages - movie-project-report](https://broistg.github.io/fcaj-project-report/) |
 
 ## Demo
 
@@ -62,10 +62,3 @@ The AWS documentation links above were last verified on **July 31, 2026**.
 | `configs/aws.yaml` | Defines the Region, S3 prefixes, SageMaker settings, and promotion criteria. |
 | `scripts/sagemaker_retrain_job.py` | Launches or dry-runs the SageMaker retraining job. |
 | `scripts/test_sagemaker_endpoint.py` | Describes and tests the SageMaker Endpoint. |
-
-## Maintenance Notes
-
-- Prefer permanent links, releases, or fixed tags so references do not change unexpectedly.
-- Record the commit SHA or release version used as workshop evidence.
-- Verify access to the source repository and demo folder before publication.
-- Recheck all links before each report update.
