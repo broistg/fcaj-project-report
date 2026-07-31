@@ -11,7 +11,7 @@ pre: " <b> 4.3. </b> "
 ### Tổng quan sự kiện
 
 * **Tên sự kiện:** FCAJ x AI Agent Build Week (AABW) Hackathon Review & Trình diễn dự án
-* **Thời gian:** Thứ Bảy, ngày 25/07/2026 (09:00 – 16:30)
+* **Thời gian:** Thứ Bảy, ngày 25/07/2026 (09:00 – 12:00)
 * **Địa điểm:** Văn phòng AWS Việt Nam / Sự kiện Hybrid
 * **Vai trò:** Người tham dự / Thí sinh tham gia
 

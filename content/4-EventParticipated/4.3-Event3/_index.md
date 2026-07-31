@@ -11,7 +11,7 @@ pre: " <b> 4.3. </b> "
 ### Event Overview
 
 * **Event Name:** FCAJ x AI Agent Build Week (AABW) Hackathon Review & Project Showcase
-* **Date & Time:** Saturday, July 25, 2026 (09:00 – 16:30)
+* **Date & Time:** Saturday, July 25, 2026 (09:00 – 12:00)
 * **Location:** AWS Vietnam Office / Hybrid Event
 * **Role:** Attendee / Participant
 
