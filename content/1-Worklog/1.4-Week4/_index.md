@@ -1,57 +1,29 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-30
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 4 Objectives (Proposal Phase 1 & Phase 3 - Web Component):
 
-### Week 4 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design UI/UX and build the streaming Web interface on Vite (React + TypeScript).
+* Build Register, Login, and Onboarding genre survey flows on Vite.
+* Build complete **Interaction Pipeline**: capture implicit user events (`click`, `watch`, `rate`, `like`) from Frontend and save to `UserInteractions` table on DynamoDB.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Initialize Vite React/TypeScript frontend project structure and dark-mode styling tokens <br> - Build centralized `apiClient` service with auto JWT authorization header injection | 07/06/2026 | 07/06/2026 | Proposal Frontend Tech Specs |
+| 3 | - Build Register, Login, and User Profile UI components <br> - Implement Genre Onboarding modal allowing new users to select their favorite movie categories | 07/07/2026 | 07/07/2026 | Proposal Onboarding Flow |
+| 4 | - Build Movie Catalog grid, Movie Detail modal, and poster-based simulated playback player <br> - Connect Frontend state to backend `/api/v1/movies` metadata endpoints | 07/08/2026 | 07/08/2026 | Proposal Movie Detail Page |
+| 5 | - Implement backend `UserInteractionsRepository` and `InteractionService` <br> - Connect Frontend interaction handlers (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) to `/api/v1/interactions` route | 07/09/2026 | 07/09/2026 | Proposal Interaction Pipeline Spec |
+| 6 | - Configure `docker-compose.yml` to orchestrate React frontend (port 5173) and FastAPI backend (port 8000) <br> - Verify that interaction events write successfully into DynamoDB `UserInteractions` table | 07/10/2026 | 07/10/2026 | Proposal Docker Environment |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Built modern, responsive Vite/React web application interface matching Proposal UI/UX requirements.
+* Implemented Register/Login flows and Onboarding genre selection for new users.
+* Successfully constructed the complete Interaction Pipeline, capturing 5 implicit user interaction types directly into DynamoDB `UserInteractions`.
+* Configured local container environment via `docker-compose.yml` for unified frontend and backend deployment testing.

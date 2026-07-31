@@ -1,59 +1,29 @@
 ---
-title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 3"
+date: 2026-07-30
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 3 (Proposal Giai đoạn 1 & Giai đoạn 3 - Web Component):
 
-### Mục tiêu tuần 3:
+* Xây dựng khung ứng dụng backend FastAPI, môi trường Docker và tầng quản lý phụ thuộc AWS SDK (`app/container.py`).
+* Triển khai các luồng xác thực: Mã hóa mật khẩu PBKDF2, xác thực phiên làm việc JWT (HS256) và khảo sát thể loại onboarding.
+* Phát triển các API hiển thị danh mục phim để truy xuất metadata từ bảng DynamoDB `Movies` và `PopularMovies`.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| 2 | - Thiết lập cấu trúc dự án backend, đóng gói Docker container và nền tảng CI/CD cơ bản <br> - Khởi tạo Pydantic configuration (`app/core/config.py`) và Boto3 AWS factory (`app/aws/infrastructure.py`) | 29/06/2026 | 29/06/2026 | Yêu cầu Web Component Proposal |
+| 3 | - Phát triển lớp `PasswordHasher` sử dụng thuật toán PBKDF2-HMAC-SHA256 <br> - Phát triển lớp `JWTService` thực hiện ký, xác thực và quản lý thời hạn access token | 30/06/2026 | 30/06/2026 | Hướng dẫn FastAPI Security |
+| 4 | - Triển khai các repository DynamoDB (`UsersRepository`, `MoviesRepository`, `PopularMoviesRepository`) <br> - Xây dựng các route `/api/v1/auth/register`, `/login` và `/me` | 01/07/2026 | 01/07/2026 | Yêu cầu xác thực trong Proposal |
+| 5 | - Phát triển endpoint `/api/v1/auth/onboarding` lưu sở thích thể loại cho người dùng mới đăng ký <br> - Xây dựng các endpoint metadata `/api/v1/movies` lấy thông tin chi tiết phim từ DynamoDB | 02/07/2026 | 02/07/2026 | API Metadata Giai đoạn 3 Proposal |
+| 6 | - Bổ sung các kiểm tra khởi động (health check) xác minh AWS identity, schema DynamoDB và quyền truy cập S3 <br> - Viết bộ unit test backend bằng `unittest` đảm bảo hợp đồng API chính xác | 03/07/2026 | 03/07/2026 | Thư viện Python `unittest` |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được Tuần 3:
 
-
-### Kết quả đạt được tuần 3:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng thành công kiến trúc backend FastAPI tuân thủ mô hình Presentation, Application và Hot Data layer trong Proposal.
+* Triển khai hệ thống xác thực người dùng an toàn (PBKDF2 + JWT) kiểm tra dữ liệu trên bảng DynamoDB `Users`.
+* Hoàn thành các API hiển thị metadata phim và luồng duyệt phim dành cho khách từ `PopularMovies` và `Movies`.
+* Xác minh thành công tính hợp lệ của tài nguyên AWS khi khởi động và vượt qua toàn bộ bộ unit test.

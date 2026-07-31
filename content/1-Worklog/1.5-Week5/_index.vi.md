@@ -1,59 +1,29 @@
 ---
-title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 5"
+date: 2026-07-30
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 5 (Proposal Giai đoạn 3 - Machine Learning Component):
 
-### Mục tiêu tuần 5:
+* Xây dựng mô hình **Popularity Ranker** cho khách chưa đăng nhập và **Content-Based Recommender** cho người dùng mới.
+* Phát triển mô hình cốt lõi **Collaborative Filtering** (Implicit ALS), chuyển đổi các sự kiện tương tác thành điểm số có trọng số.
+* Triển khai thuật toán **Hybrid RRF** kết hợp các luồng ứng viên, xây dựng pipeline đánh giá offline và thiết lập **Promotion Gate** tự động.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| 2 | - Phát triển `PopularityRecommender` (công thức trọng số IMDb) cho khách chưa đăng nhập <br> - Phát triển `ContentRecommender` sử dụng trích xuất đặc trưng TF-IDF & độ tương đồng cosine | 13/07/2026 | 13/07/2026 | Đặc tả Popularity & Content Proposal |
+| 3 | - Phát triển mô hình cốt lõi `ImplicitALSRecommender` (phân rã ma trận `implicit`) chuyển đổi tương tác người dùng thành ma trận điểm trọng số | 14/07/2026 | 14/07/2026 | Đặc tả Collaborative Filtering Proposal |
+| 4 | - Triển khai `HybridRecommender` kết hợp Collaborative ALS, Content-Based và Popularity Fallback bằng thuật toán Weighted Reciprocal Rank Fusion (RRF) | 15/07/2026 | 15/07/2026 | Thuật toán Weighted RRF Proposal |
+| 5 | - Xây dựng pipeline đánh giá định lượng offline (`evaluate.py`) đo lường HitRate@10, NDCG@10, độ phủ danh mục và độ đa dạng gợi ý | 16/07/2026 | 16/07/2026 | Chỉ số Information Retrieval |
+| 6 | - Phát triển module **Promotion Gate** tự động (`promote.py`) đảm bảo 3 điều kiện: >1000 user được chấm điểm, vượt Popularity Baseline, giảm không quá 5% độ chính xác <br> - Đồng bộ trọng số mô hình và con trỏ phiên bản `LATEST.json` lên S3 | 17/07/2026 | 17/07/2026 | Cổng kiểm duyệt tự động Proposal |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được Tuần 5:
 
-
-### Kết quả đạt được tuần 5:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng thành công cả 4 thuật toán gợi ý theo yêu cầu Giai đoạn 3 trong Proposal: Popularity, Content-Based, Implicit ALS và Hybrid Weighted RRF.
+* Hoàn thành đánh giá định lượng trên 5.000 user test: Collaborative ALS đạt HitRate@10 = 0.1115 (tăng +235.8% so với baseline); mô hình Hybrid đạt HitRate@10 = 0.0818 (tăng +146.4% so với baseline) với độ phủ 17.85%.
+* Giải quyết triệt để sự cố Cold-start cho người dùng mới nhờ tầng Fallback toàn cục trong mô hình Hybrid RRF.
+* Triển khai logic Promotion Gate tự động kiểm tra mô hình trước khi xuất artifact lên S3.

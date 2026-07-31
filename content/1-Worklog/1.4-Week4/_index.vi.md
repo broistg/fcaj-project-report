@@ -1,59 +1,29 @@
 ---
-title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 4"
+date: 2026-07-30
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 4 (Proposal Giai đoạn 1 & Giai đoạn 3 - Web Component):
 
-### Mục tiêu tuần 4:
+* Thiết kế UI/UX cơ bản và xây dựng giao diện ứng dụng Web phim trên Vite (React + TypeScript).
+* Xây dựng các luồng Đăng ký, Đăng nhập và khảo sát thể loại Onboarding trên Vite.
+* Xây dựng **Interaction Pipeline** hoàn chỉnh: Thu thập các sự kiện tương tác (`click`, `watch`, `rate`, `like`) từ Frontend và lưu vào bảng `UserInteractions` trên DynamoDB.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| 2 | - Khởi tạo cấu trúc dự án Vite React/TypeScript frontend và hệ thống màu dark-mode <br> - Xây dựng service `apiClient` tập trung tự động chèn header xác thực JWT | 06/07/2026 | 06/07/2026 | Đặc tả Frontend trong Proposal |
+| 3 | - Xây dựng các component giao diện Đăng ký, Đăng nhập và trang Profile cá nhân <br> - Triển khai modal khảo sát Onboarding cho phép người dùng mới lựa chọn các thể loại phim yêu thích | 07/07/2026 | 07/07/2026 | Luồng Onboarding Proposal |
+| 4 | - Xây dựng lưới danh mục phim, modal Chi tiết phim và trình phát phim mô phỏng dựa trên poster <br> - Kết nối state Frontend với các API metadata `/api/v1/movies` của backend | 08/07/2026 | 08/07/2026 | Màn hình chi tiết phim Proposal |
+| 5 | - Triển khai backend `UserInteractionsRepository` và `InteractionService` <br> - Kết nối bộ xử lý tương tác Frontend (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) tới route `/api/v1/interactions` | 09/07/2026 | 09/07/2026 | Đặc tả Interaction Pipeline Proposal |
+| 6 | - Cấu hình `docker-compose.yml` đóng gói ứng dụng React frontend (port 5173) và FastAPI backend (port 8000) <br> - Kiểm thử xác minh các sự kiện tương tác lưu thành công vào bảng DynamoDB `UserInteractions` | 10/07/2026 | 10/07/2026 | Môi trường Docker Proposal |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được Tuần 4:
 
-
-### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng giao diện web Vite/React hiện đại, mượt mà đáp ứng đầy đủ yêu cầu UI/UX trong Proposal.
+* Hoàn thành các luồng Đăng ký/Đăng nhập và khảo sát thể loại Onboarding dành cho người dùng mới.
+* Xây dựng thành công Interaction Pipeline thu thập đủ 5 loại tương tác ngầm định lưu trực tiếp vào DynamoDB `UserInteractions`.
+* Đóng gói thành công môi trường container cục bộ bằng `docker-compose.yml` phục vụ kiểm thử tích hợp.

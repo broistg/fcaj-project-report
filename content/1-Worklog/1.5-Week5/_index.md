@@ -1,57 +1,29 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-30
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 5 Objectives (Proposal Phase 3 - Machine Learning Component):
 
-### Week 5 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Build **Popularity Ranker** model for unauthenticated guest users and **Content-Based Recommender** for onboarding users.
+* Develop core **Collaborative Filtering** model (Implicit ALS), converting interaction events into weighted numerical scores.
+* Implement **Hybrid RRF** algorithm combining candidate streams, build offline evaluation pipeline, and implement automated **Promotion Gate** logic.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Develop `PopularityRecommender` (IMDb weighted score formula) for guest users <br> - Develop `ContentRecommender` using TF-IDF feature extraction & genre cosine similarity | 07/13/2026 | 07/13/2026 | Proposal Popularity & Content Spec |
+| 3 | - Develop core `ImplicitALSRecommender` (`implicit` matrix factorization) converting user interaction events into weighted matrix scores | 07/14/2026 | 07/14/2026 | Proposal Collaborative Filtering Spec |
+| 4 | - Implement `HybridRecommender` combining Collaborative ALS, Content-Based, and Popularity Fallback using Weighted Reciprocal Rank Fusion (RRF) | 07/15/2026 | 07/15/2026 | Proposal Weighted RRF Algorithm |
+| 5 | - Build offline quantitative evaluation pipeline (`evaluate.py`) measuring HitRate@10, NDCG@10, catalog coverage, and recommendation diversity | 07/16/2026 | 07/16/2026 | Information Retrieval Metrics |
+| 6 | - Develop automated **Promotion Gate** module (`promote.py`) enforcing 3 conditions: >1000 users scored, beats Popularity Baseline, <5% accuracy drop <br> - Sync model weights and `LATEST.json` version pointer to S3 | 07/17/2026 | 07/17/2026 | Proposal Automated Moderation Gate |
 
 ### Week 5 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Built all 4 recommendation algorithms specified in Proposal Phase 3: Popularity, Content-Based, Implicit ALS, and Hybrid Weighted RRF.
+* Completed quantitative evaluation on 5,000 test users: Collaborative ALS achieved HitRate@10 = 0.1115 (+235.8% over baseline); Hybrid model achieved HitRate@10 = 0.0818 (+146.4% over baseline) and 17.85% catalog coverage.
+* Solved the Cold-start limitation for new users via global fallback layering in the Hybrid RRF model.
+* Implemented Promotion Gate logic automatically validating candidate models before exporting artifacts to S3.

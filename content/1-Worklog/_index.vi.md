@@ -1,40 +1,26 @@
 ---
 title: "Nhật ký công việc"
-date: 2024-01-01
+date: 2026-07-31
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Mục này ghi lại chi tiết nhật ký công việc theo từng tuần trong suốt 7 tuần thực tập từ **Thứ Hai 15/06/2026 đến Thứ Sáu 31/07/2026**.
 
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?
+Các công việc và mốc phát triển tuân thủ nghiêm ngặt lộ trình triển khai 5 giai đoạn được định nghĩa trong bản **Đề xuất dự án (Proposal)** ([2-Proposal](../2-proposal/)):
+1. **Thiết lập hạ tầng & Chuẩn bị dữ liệu** (Tuần 1–2)
+2. **Dự toán chi phí** (Tuần 1)
+3. **Phát triển tính năng & Huấn luyện mô hình** (Tuần 3–5)
+4. **Tích hợp hệ thống & Triển khai Cloud** (Tuần 6)
+5. **Kiểm thử, Tối ưu hóa & Hoàn thiện báo cáo** (Tuần 7)
 
+### Tóm tắt công việc theo tuần:
 
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
-
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
-
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
-
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
-
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
-
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
-
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
-
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
-
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
-
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
-
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
-
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
-
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+- **Tuần 1 (15/06/2026 – 19/06/2026):** [Giai đoạn 1 & 2: Onboarding AWS, Nghiên cứu dịch vụ & Tính toán chi phí Proposal](1.1-week1/)
+- **Tuần 2 (22/06/2026 – 26/06/2026):** [Giai đoạn 1: Triển khai hạ tầng (S3 & DynamoDB) & Data Pipeline xử lý dữ liệu](1.2-week2/)
+- **Tuần 3 (29/06/2026 – 03/07/2026):** [Giai đoạn 1 & 3: Khung Backend FastAPI, Xác thực JWT & API Metadata](1.3-week3/)
+- **Tuần 4 (06/07/2026 – 10/07/2026):** [Giai đoạn 3: Frontend React/Vite, Khảo sát Onboarding & Interaction Pipeline](1.4-week4/)
+- **Tuần 5 (13/07/2026 – 17/07/2026):** [Giai đoạn 3: Thuật toán gợi ý (Popularity, Content, ALS, Hybrid RRF) & Đánh giá Offline](1.5-week5/)
+- **Tuần 6 (20/07/2026 – 24/07/2026):** [Giai đoạn 4: Triển khai SageMaker Endpoint, Tự động retrain & CI/CD lên EC2](1.6-week6/)
+- **Tuần 7 (27/07/2026 – 31/07/2026):** [Giai đoạn 5: Kiểm thử hệ thống, Tối ưu hóa hiệu năng, Quản trị chi phí & Hoàn thiện báo cáo](1.7-week7/)

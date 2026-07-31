@@ -1,59 +1,29 @@
 ---
-title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+title: "Nhật ký công việc Tuần 2"
+date: 2026-07-30
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 2 (Proposal Giai đoạn 1):
 
-### Mục tiêu tuần 2:
+* Triển khai hạ tầng lưu trữ AWS: Cấu trúc Amazon S3 bucket và schema các bảng Amazon DynamoDB.
+* Thực thi Data Pipeline tiền xử lý dữ liệu Machine Learning từ nguồn file Kaggle CSV thô.
+* Phân tách tập dữ liệu đã làm sạch thành các tập Train, Validation và Test phục vụ huấn luyện mô hình.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| 2 | - Triển khai Amazon S3 bucket tại `ap-southeast-1` với quy tắc S3 Lifecycle Rules (tự động xóa artifact cũ sau 30 ngày) <br> - Thiết lập cấu trúc prefix (`datasets/raw/`, `datasets/processed/`, `models/`, `reports/`) | 22/06/2026 | 22/06/2026 | Đề xuất Tầng dữ liệu Proposal |
+| 3 | - Thiết kế schema DynamoDB Hot Data: Khóa chính (PK) & Khóa sắp xếp (SK) <br> - Tạo bảng `Movies` (PK `movie_id`) và bảng `PopularMovies` (PK `list_id`, SK `rank`) trên AWS | 23/06/2026 | 23/06/2026 | Hướng dẫn DynamoDB Developer |
+| 4 | - Tạo bảng `Users` (PK `user_id`), bảng `UserInteractions` (PK `user_id`, SK `interaction_key`) và bảng `RecommendationCache` | 24/06/2026 | 24/06/2026 | Yêu cầu cơ sở dữ liệu Proposal |
+| 5 | - Viết script Python Data Pipeline để tiền xử lý tập dữ liệu Kaggle/MovieLens thô <br> - Lọc giá trị khuyết thiếu, trích xuất đặc trưng phim và ánh xạ MovieLens ID sang TMDB catalog ID | 25/06/2026 | 25/06/2026 | Tài liệu Pandas & Scikit-Learn |
+| 6 | - Phân tách dữ liệu tương tác đã xử lý thành các tập Train/Validation/Test theo thời gian <br> - Nạp bản ghi danh mục phim vào bảng DynamoDB `Movies` và xếp hạng `PopularMovies` tính sẵn | 26/06/2026 | 26/06/2026 | Tài liệu Python Boto3 |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được Tuần 2:
 
-
-### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Triển khai thành công S3 Cold Storage Data với 7 phân vùng logic và quy tắc quản lý vòng đời dữ liệu.
+* Khởi tạo thành công 5 bảng DynamoDB Hot Data trên AWS khớp chính xác với thiết kế trong Proposal.
+* Làm sạch dữ liệu phim Kaggle, xuất thành công các tập Train/Validation/Test lên S3.
+* Nạp danh mục phim TMDB vào bảng `Movies` và lưu danh sách xếp hạng `PopularMovies` tính theo trọng số IMDb.

@@ -1,59 +1,28 @@
 ---
-title: "Worklog Tuần 1"
-date: 2024-01-01
+title: "Nhật ký công việc Tuần 1"
+date: 2026-07-30
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 1 (Proposal Giai đoạn 1 & Giai đoạn 2):
 
-### Mục tiêu tuần 1:
+* Khởi động chương trình thực tập FCAJ, thống nhất phân công nhóm và nắm rõ quy định bảo mật.
+* Nghiên cứu các dịch vụ AWS cốt lõi (VPC, EC2, DynamoDB, S3, SageMaker) phục vụ kiến trúc suy luận gợi ý Real-time.
+* Soạn thảo bản **Đề xuất dự án (Proposal)** (Mục 2) và tính toán dự toán chi phí ($91.34/tháng) trên AWS Pricing Calculator.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| 2 | - Hoàn thành onboarding chương trình FCAJ & thống nhất phân công nhóm <br> - Đọc và ghi nhớ quy định thực tập, thiết lập workspace và chính sách an toàn thông tin | 15/06/2026 | 15/06/2026 | Tài liệu Onboarding nội bộ |
+| 3 | - Cấu hình AWS CLI v2 và IAM developer profile tại region `ap-southeast-1` <br> - Nghiên cứu các dịch vụ AWS cho ứng dụng phim & ML inference: EC2, S3, DynamoDB, SageMaker | 16/06/2026 | 16/06/2026 | <https://docs.aws.amazon.com/cli/> |
+| 4 | - Phân tích cấu trúc thô của tập dữ liệu The Movies Dataset (Kaggle/MovieLens) <br> - Xác định bài toán: quá tải thông tin (mất 15-20 phút chọn phim) vs gợi ý chủ động | 17/06/2026 | 17/06/2026 | Kaggle Movies Dataset |
+| 5 | - Thiết kế kiến trúc giải pháp 4 tầng (Presentation, Application, Hot/Cold Data, ML Layer) <br> - Ánh xạ tài nguyên AWS: EC2 (Vite + FastAPI), DynamoDB (Hot data), S3 (Cold data), SageMaker (Processing Jobs & Endpoints) | 18/06/2026 | 18/06/2026 | Kiến trúc giải pháp Proposal |
+| 6 | - Tính toán dự toán chi phí trên AWS Pricing Calculator ($91.34/tháng tổng cộng, bao gồm endpoint `ml.m5.xlarge` 24/7 & EC2) <br> - Soạn thảo văn bản Đề xuất dự án (Mục 2) & ma trận rủi ro | 19/06/2026 | 19/06/2026 | <https://calculator.aws/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được Tuần 1:
 
-
-### Kết quả đạt được tuần 1:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Thiết lập thành công môi trường máy trạm và xác minh xác thực AWS SDK qua `aws sts get-caller-identity`.
+* Hoàn thiện kiến trúc giải pháp 4 tầng cho hệ thống suy luận gợi ý thời gian thực trên AWS.
+* Hoàn thành văn bản **Proposal** (Mục 2) chính thức bao gồm tóm tắt dự án, bài toán, ma trận rủi ro và dự toán ngân sách.
