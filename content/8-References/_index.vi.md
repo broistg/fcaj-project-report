@@ -21,10 +21,6 @@ Mục này tập hợp mã nguồn, bản demo, tài liệu AWS chính thức v�
 
 - [Google Drive - Demo hệ thống gợi ý phim](https://drive.google.com/drive/folders/1TNqHmVXZxYamXQ_ZqLBBzCpeKkqFaSAn?usp=sharing)
 
-{{% notice note %}}
-Hãy bảo đảm người xem có quyền truy cập thư mục Google Drive trước khi công bố báo cáo. Không đưa access token, secret key, mật khẩu hoặc URL tạm thời có chữ ký vào tài liệu.
-{{% /notice %}}
-
 ## Tài liệu AWS chính thức
 
 ### Amazon S3 và DynamoDB
