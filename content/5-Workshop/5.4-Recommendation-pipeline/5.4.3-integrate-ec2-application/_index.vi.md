@@ -133,12 +133,3 @@ Kết quả mong đợi:
 - Startup log không lộ credential.
 
 ![Swagger UI của Movie Recommendation API chạy trên EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-fastapi-swagger-ui.png)
-
-
-## 9. Phân biệt EC2 application và EC2 retraining
-
-`ml/deploy/ec2_bootstrap.sh` cấu hình một systemd timer cho retraining, không phải web deployment. Template này hiện cần sửa:
-
-- Subdirectory mặc định không trùng path submodule `ml`.
-- Event prefix `events/` không trùng cấu hình canonical `datasets/exports/`.
-
