@@ -12,17 +12,14 @@ This section collects the source code, demo, official AWS documentation, and rep
 
 | Resource | Link |
 |---|---|
-| Movie recommendation source code | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
+| Movie recommendation source code | [GitHub - movie-recommendation](https://github.com/tanghongai1704/movie-recommendation) |
+| Model processing system source code | [GitHub - movie-recommendation-system](https://github.com/CaPPok/movie-recommendation-system) |
 | Report and workshop repository | [GitHub - movie-project-report](https://github.com/broistg/fcaj-project-report/) |
 | Published report website | [GitHub Pages - movie-project-report](https://broistg.github.io/fcaj-project-report/) |
 
 ## Demo
 
 - [Google Drive - Movie recommendation system demo](https://drive.google.com/drive/folders/1TNqHmVXZxYamXQ_ZqLBBzCpeKkqFaSAn?usp=sharing)
-
-{{% notice note %}}
-Make sure viewers can access the Google Drive folder before publishing the report. Never include access tokens, secret keys, passwords, or temporary signed URLs in this documentation.
-{{% /notice %}}
 
 ## Official AWS Documentation
 
