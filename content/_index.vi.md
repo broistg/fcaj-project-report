@@ -20,11 +20,11 @@ chapter: false
 
 &emsp; **Lớp:** MT23KHT
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Viet Nam
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Việt Nam
 
 &emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Thời gian thực tập:** Từ ngày 15/06/2026 đến ngày 12/08/2026
+&emsp; **Thời gian thực tập:** Từ ngày 15/06/2026 đến ngày 14/08/2026
 
 ![Ảnh đại diện của bạn](/images/avatar.jpg)
 
