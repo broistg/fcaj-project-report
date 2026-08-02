@@ -12,8 +12,6 @@ The repository uses boto3's default credential provider chain:
 - EC2 uses an instance profile.
 - SageMaker uses an execution role.
 
-The exact role names, JSON policies, trust relationships, and ARNs are not stored in the repository.
-
 ![Credential flow between developers, EC2, and AWS services](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
 
 *A developer profile or EC2 instance profile provides credentials to boto3; the JWT secret is managed separately for FastAPI authentication.*
