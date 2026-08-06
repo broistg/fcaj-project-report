@@ -6,24 +6,24 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives (Proposal Phase 3 - Machine Learning Component):
+### Week 5 Objectives (Proposal Phase 1 & Phase 3 - Web Component):
 
-* Build **Popularity Ranker** model for unauthenticated guest users and **Content-Based Recommender** for onboarding users.
-* Develop core **Collaborative Filtering** model (Implicit ALS), converting interaction events into weighted numerical scores.
-* Implement **Hybrid RRF** algorithm combining candidate streams, build offline evaluation pipeline, and implement automated **Promotion Gate** logic.
+* Design basic UI/UX and build the movie web application frontend on Vite (React + TypeScript).
+* Build Register, Login, and genre onboarding survey user flows on Vite.
+* Implement a complete **Interaction Pipeline**: Capture interaction events (`click`, `watch`, `rate`, `like`) from Frontend and persist to DynamoDB `UserInteractions` table.
 
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Develop `PopularityRecommender` (IMDb weighted score formula) for guest users <br> - Develop `ContentRecommender` using TF-IDF feature extraction & genre cosine similarity | 07/13/2026 | 07/13/2026 | Proposal Popularity & Content Spec |
-| 3 | - Develop core `ImplicitALSRecommender` (`implicit` matrix factorization) converting user interaction events into weighted matrix scores | 07/14/2026 | 07/14/2026 | Proposal Collaborative Filtering Spec |
-| 4 | - Implement `HybridRecommender` combining Collaborative ALS, Content-Based, and Popularity Fallback using Weighted Reciprocal Rank Fusion (RRF) | 07/15/2026 | 07/15/2026 | Proposal Weighted RRF Algorithm |
-| 5 | - Build offline quantitative evaluation pipeline (`evaluate.py`) measuring HitRate@10, NDCG@10, catalog coverage, and recommendation diversity | 07/16/2026 | 07/16/2026 | Information Retrieval Metrics |
-| 6 | - Develop automated **Promotion Gate** module (`promote.py`) enforcing 3 conditions: >1000 users scored, beats Popularity Baseline, <5% accuracy drop <br> - Sync model weights and `LATEST.json` version pointer to S3 | 07/17/2026 | 07/17/2026 | Proposal Automated Moderation Gate |
+| 2 | - Initialize Vite React/TypeScript frontend project structure and dark-mode styling system <br> - Build centralized `apiClient` service automatically injecting JWT auth headers | 07/06/2026 | 07/06/2026 | Proposal Frontend Specs |
+| 3 | - Build Register, Login, and personal Profile UI components <br> - Implement Onboarding modal allowing new users to select preferred movie genres | 07/07/2026 | 07/07/2026 | Proposal Onboarding Flow |
+| 4 | - Construct movie catalog grid, Movie Details modal, and poster-based simulated video player <br> - Connect Frontend state to backend metadata APIs `/api/v1/movies` | 07/08/2026 | 07/08/2026 | Proposal Movie Detail Screen |
+| 5 | - Implement backend `UserInteractionsRepository` and `InteractionService` <br> - Connect Frontend interaction handlers (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) to `/api/v1/interactions` route | 07/09/2026 | 07/09/2026 | Proposal Interaction Pipeline |
+| 6 | - Configure `docker-compose.yml` packaging React frontend (port 5173) and FastAPI backend (port 8000) <br> - Test and verify interaction events successfully written to DynamoDB `UserInteractions` table | 07/10/2026 | 07/10/2026 | Proposal Docker Environment |
 
 ### Week 5 Achievements:
 
-* Built all 4 recommendation algorithms specified in Proposal Phase 3: Popularity, Content-Based, Implicit ALS, and Hybrid Weighted RRF.
-* Completed quantitative evaluation on 5,000 test users: Collaborative ALS achieved HitRate@10 = 0.1115 (+235.8% over baseline); Hybrid model achieved HitRate@10 = 0.0818 (+146.4% over baseline) and 17.85% catalog coverage.
-* Solved the Cold-start limitation for new users via global fallback layering in the Hybrid RRF model.
-* Implemented Promotion Gate logic automatically validating candidate models before exporting artifacts to S3.
+* Built modern, responsive Vite/React web interface fully satisfying Proposal UI/UX requirements.
+* Completed user Register/Login flows and genre survey onboarding for new users.
+* Successfully built Interaction Pipeline capturing 5 implicit interaction types directly to DynamoDB `UserInteractions`.
+* Packaged local containerized environment via `docker-compose.yml` for integration testing.

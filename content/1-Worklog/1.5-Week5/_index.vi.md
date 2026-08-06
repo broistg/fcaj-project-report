@@ -6,24 +6,24 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Mục tiêu Tuần 5 (Proposal Giai đoạn 3 - Machine Learning Component):
+### Mục tiêu Tuần 5 (Proposal Giai đoạn 1 & Giai đoạn 3 - Web Component):
 
-* Xây dựng mô hình **Popularity Ranker** cho khách chưa đăng nhập và **Content-Based Recommender** cho người dùng mới.
-* Phát triển mô hình cốt lõi **Collaborative Filtering** (Implicit ALS), chuyển đổi các sự kiện tương tác thành điểm số có trọng số.
-* Triển khai thuật toán **Hybrid RRF** kết hợp các luồng ứng viên, xây dựng pipeline đánh giá offline và thiết lập **Promotion Gate** tự động.
+* Thiết kế UI/UX cơ bản và xây dựng giao diện ứng dụng Web phim trên Vite (React + TypeScript).
+* Xây dựng các luồng Đăng ký, Đăng nhập và khảo sát thể loại Onboarding trên Vite.
+* Xây dựng **Interaction Pipeline** hoàn chỉnh: Thu thập các sự kiện tương tác (`click`, `watch`, `rate`, `like`) từ Frontend và lưu vào bảng `UserInteractions` trên DynamoDB.
 
 ### Công việc thực hiện trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Phát triển `PopularityRecommender` (công thức trọng số IMDb) cho khách chưa đăng nhập <br> - Phát triển `ContentRecommender` sử dụng trích xuất đặc trưng TF-IDF & độ tương đồng cosine | 13/07/2026 | 13/07/2026 | Đặc tả Popularity & Content Proposal |
-| 3 | - Phát triển mô hình cốt lõi `ImplicitALSRecommender` (phân rã ma trận `implicit`) chuyển đổi tương tác người dùng thành ma trận điểm trọng số | 14/07/2026 | 14/07/2026 | Đặc tả Collaborative Filtering Proposal |
-| 4 | - Triển khai `HybridRecommender` kết hợp Collaborative ALS, Content-Based và Popularity Fallback bằng thuật toán Weighted Reciprocal Rank Fusion (RRF) | 15/07/2026 | 15/07/2026 | Thuật toán Weighted RRF Proposal |
-| 5 | - Xây dựng pipeline đánh giá định lượng offline (`evaluate.py`) đo lường HitRate@10, NDCG@10, độ phủ danh mục và độ đa dạng gợi ý | 16/07/2026 | 16/07/2026 | Chỉ số Information Retrieval |
-| 6 | - Phát triển module **Promotion Gate** tự động (`promote.py`) đảm bảo 3 điều kiện: >1000 user được chấm điểm, vượt Popularity Baseline, giảm không quá 5% độ chính xác <br> - Đồng bộ trọng số mô hình và con trỏ phiên bản `LATEST.json` lên S3 | 17/07/2026 | 17/07/2026 | Cổng kiểm duyệt tự động Proposal |
+| 2 | - Khởi tạo cấu trúc dự án Vite React/TypeScript frontend và hệ thống màu dark-mode <br> - Xây dựng service `apiClient` tập trung tự động chèn header xác thực JWT | 06/07/2026 | 06/07/2026 | Đặc tả Frontend trong Proposal |
+| 3 | - Xây dựng các component giao diện Đăng ký, Đăng nhập và trang Profile cá nhân <br> - Triển khai modal khảo sát Onboarding cho phép người dùng mới lựa chọn các thể loại phim yêu thích | 07/07/2026 | 07/07/2026 | Luồng Onboarding Proposal |
+| 4 | - Xây dựng lưới danh mục phim, modal Chi tiết phim và trình phát phim mô phỏng dựa trên poster <br> - Kết nối state Frontend với các API metadata `/api/v1/movies` của backend | 08/07/2026 | 08/07/2026 | Màn hình chi tiết phim Proposal |
+| 5 | - Triển khai backend `UserInteractionsRepository` và `InteractionService` <br> - Kết nối bộ xử lý tương tác Frontend (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) tới route `/api/v1/interactions` | 09/07/2026 | 09/07/2026 | Đặc tả Interaction Pipeline Proposal |
+| 6 | - Cấu hình `docker-compose.yml` đóng gói ứng dụng React frontend (port 5173) và FastAPI backend (port 8000) <br> - Kiểm thử xác minh các sự kiện tương tác lưu thành công vào bảng DynamoDB `UserInteractions` | 10/07/2026 | 10/07/2026 | Môi trường Docker Proposal |
 
 ### Kết quả đạt được Tuần 5:
 
-* Xây dựng thành công cả 4 thuật toán gợi ý theo yêu cầu Giai đoạn 3 trong Proposal: Popularity, Content-Based, Implicit ALS và Hybrid Weighted RRF.
-* Hoàn thành đánh giá định lượng trên 5.000 user test: Collaborative ALS đạt HitRate@10 = 0.1115 (tăng +235.8% so với baseline); mô hình Hybrid đạt HitRate@10 = 0.0818 (tăng +146.4% so với baseline) với độ phủ 17.85%.
-* Giải quyết triệt để sự cố Cold-start cho người dùng mới nhờ tầng Fallback toàn cục trong mô hình Hybrid RRF.
-* Triển khai logic Promotion Gate tự động kiểm tra mô hình trước khi xuất artifact lên S3.
+* Xây dựng giao diện web Vite/React hiện đại, mượt mà đáp ứng đầy đủ yêu cầu UI/UX trong Proposal.
+* Hoàn thành các luồng Đăng ký/Đăng nhập và khảo sát thể loại Onboarding dành cho người dùng mới.
+* Xây dựng thành công Interaction Pipeline thu thập đủ 5 loại tương tác ngầm định lưu trực tiếp vào DynamoDB `UserInteractions`.
+* Đóng gói thành công môi trường container cục bộ bằng `docker-compose.yml` phục vụ kiểm thử tích hợp.

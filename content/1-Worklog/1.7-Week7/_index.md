@@ -6,24 +6,24 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-### Week 7 Objectives (Proposal Phase 5 - Testing & Optimization):
+### Week 7 Objectives (Proposal Phase 4 - System Integration & Cloud Deployment):
 
-* Review the entire system across 3 core user scenarios (Guest browsing, New user onboarding, Returning user recommendations), handle errors, and measure real-world performance.
-* Optimize page load times, DynamoDB query speeds, and recommendation cache efficiency.
-* Monitor AWS costs against budget guardrails ($91.34/month estimate) and finalize Workshop documentation (Section 5) & personal internship report.
+* Integrate Machine Learning models into Backend workflow: Construct recommendation POST API (`/api/v1/recommend`) routing requests from Frontend to prediction server.
+* Package AI models and integrate with **SageMaker Real-time Endpoint** (`InvokeEndpoint`) serving ultra-low latency 24/7 predictions backed by DynamoDB `RecommendationCache` fallback.
+* Automate periodic model retraining via **SageMaker Processing Jobs** and deploy application containers to Amazon EC2 via GitHub Actions CI/CD.
 
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Conduct comprehensive system review across Unauthenticated Guest, New User Onboarding, and Returning User recommendation scenarios <br> - Test fallback mechanisms: verify system degrades gracefully to DynamoDB `PopularMovies` if SageMaker endpoint is offline | 07/27/2026 | 07/27/2026 | Proposal Testing & Fallback Spec |
-| 3 | - Measure real-world performance: optimize Vite page load times, DynamoDB batch query latency (`BatchGetItem`), and cache TTL settings <br> - Verify cross-data validation: ensure movie IDs returned by model exist in DynamoDB catalog | 07/28/2026 | 07/28/2026 | Proposal Performance Optimization |
-| 4 | - Audit AWS cost monitoring: verify AWS Budgets alerts (50% and 75% thresholds) and S3 Lifecycle Rules (auto-deleting old model versions after 30 days) <br> - Review IAM least-privilege policies and CloudWatch log groups | 07/29/2026 | 07/29/2026 | Proposal Budget & Risk Mitigation |
-| 5 | - Update system Architecture Diagram (v2.0 / `diagram.png`) reflecting VPC, EC2, DynamoDB, S3, SageMaker, IAM, CloudWatch, and AWS Budgets <br> - Complete Section 5 Workshop documentation in both English and Vietnamese | 07/30/2026 | 07/30/2026 | Workshop Report Section 5 |
-| 6 | - Complete personal Worklog (Week 1 to Week 7), verify Hugo site build locally, clean up template warnings, and publish final report | 07/31/2026 | 07/31/2026 | Personal Report Finalization |
+| 2 | - Build backend recommendation POST API route (`/api/v1/recommend/{user_id}`) handling scenarios (`onboarding_user`, `returning_user`) <br> - Develop `SageMakerRecommendationProvider` calling `boto3.client('sagemaker-runtime')` | 07/20/2026 | 07/20/2026 | Proposal Phase 4 Integration |
+| 3 | - Configure SageMaker Real-time Endpoint integration (`ml.m5.xlarge` instance) serving real-time 24/7 predictions <br> - Implement automated fallback logic: when Endpoint is overloaded/unavailable, automatically fallback to DynamoDB `RecommendationCache` / `PopularMovies` | 07/21/2026 | 07/21/2026 | Proposal SageMaker Endpoint Specs |
+| 4 | - Automate model retraining process using SageMaker Processing Jobs (`scripts/run_processing_job.py`) reading historical interactions from S3 | 07/22/2026 | 07/22/2026 | Proposal Automated Retraining |
+| 5 | - Provision Amazon EC2 (`t3.micro`) in Public Subnet of default VPC attached with IAM Instance Profile <br> - Write GitHub Actions workflow (`.github/workflows/deploy.yml`) executing SSH deploy and `docker compose up -d` | 07/23/2026 | 07/23/2026 | Proposal EC2 Deployment & CI/CD |
+| 6 | - System integration testing verifying connectivity between EC2 containers, SageMaker Endpoint, DynamoDB, and S3 | 07/24/2026 | 07/24/2026 | Proposal Integration Testing |
 
 ### Week 7 Achievements:
 
-* Reviewed the entire system across all user scenarios, proving instant personalization and zero cold-start latency via SageMaker Real-time Endpoints.
-* Optimized page load times and DynamoDB query speeds while enforcing cross-data validation assertions.
-* Confirmed AWS Budgets cost guardrails ($91.34/month) and S3 lifecycle rules preventing unexpected storage cost blowouts.
-* Completed personal internship report (`fcaj-project-report`), synchronized Workshop documentation, removed template warnings, and published deliverables.
+* Built integrated recommendation backend API smoothly routing requests between React frontend and prediction server.
+* Successfully integrated SageMaker Real-time Endpoint serving low-latency predictions with safe DynamoDB fallback mechanisms.
+* Automated periodic model retraining tasks using SageMaker Processing Jobs.
+* Configured GitHub Actions CI/CD pipeline automatically deploying application updates to Amazon EC2 server over SSH.

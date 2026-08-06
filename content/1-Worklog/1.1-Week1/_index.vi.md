@@ -6,23 +6,23 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-### Mục tiêu Tuần 1 (Proposal Giai đoạn 1 & Giai đoạn 2):
+### Mục tiêu Tuần 1 (Proposal Giai đoạn 1):
 
-* Khởi động chương trình thực tập FCAJ, thống nhất phân công nhóm và nắm rõ quy định bảo mật.
-* Nghiên cứu các dịch vụ AWS cốt lõi (VPC, EC2, DynamoDB, S3, SageMaker) phục vụ kiến trúc suy luận gợi ý Real-time.
-* Soạn thảo bản **Đề xuất dự án (Proposal)** (Mục 2) và tính toán dự toán chi phí ($91.34/tháng) trên AWS Pricing Calculator.
+* Khởi động chương trình thực tập FCAJ, tiếp nhận quy trình làm việc, thống nhất phân công nhóm và nắm rõ quy định an toàn thông tin AWS.
+* Tìm hiểu tổng quan kiến thức AWS Cloud Fundamentals và các dịch vụ đám mây cốt lõi (IAM, EC2, S3, DynamoDB, SageMaker, VPC).
+* Thiết lập môi trường máy trạm nhà phát triển: Cấu hình AWS CLI v2, IAM developer profile tại region `ap-southeast-1` và xác minh kết nối SDK.
 
 ### Công việc thực hiện trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Hoàn thành onboarding chương trình FCAJ & thống nhất phân công nhóm <br> - Đọc và ghi nhớ quy định thực tập, thiết lập workspace và chính sách an toàn thông tin | 15/06/2026 | 15/06/2026 | Tài liệu Onboarding nội bộ |
-| 3 | - Cấu hình AWS CLI v2 và IAM developer profile tại region `ap-southeast-1` <br> - Nghiên cứu các dịch vụ AWS cho ứng dụng phim & ML inference: EC2, S3, DynamoDB, SageMaker | 16/06/2026 | 16/06/2026 | <https://docs.aws.amazon.com/cli/> |
-| 4 | - Phân tích cấu trúc thô của tập dữ liệu The Movies Dataset (Kaggle/MovieLens) <br> - Xác định bài toán: quá tải thông tin (mất 15-20 phút chọn phim) vs gợi ý chủ động | 17/06/2026 | 17/06/2026 | Kaggle Movies Dataset |
-| 5 | - Thiết kế kiến trúc giải pháp 4 tầng (Presentation, Application, Hot/Cold Data, ML Layer) <br> - Ánh xạ tài nguyên AWS: EC2 (Vite + FastAPI), DynamoDB (Hot data), S3 (Cold data), SageMaker (Processing Jobs & Endpoints) | 18/06/2026 | 18/06/2026 | Kiến trúc giải pháp Proposal |
-| 6 | - Tính toán dự toán chi phí trên AWS Pricing Calculator ($91.34/tháng tổng cộng, bao gồm endpoint `ml.m5.xlarge` 24/7 & EC2) <br> - Soạn thảo văn bản Đề xuất dự án (Mục 2) & ma trận rủi ro | 19/06/2026 | 19/06/2026 | <https://calculator.aws/> |
+| 2 | - Hoàn thành onboarding chương trình FCAJ & tiếp nhận quy trình làm việc <br> - Đọc và ghi nhớ quy định bảo mật an toàn thông tin, chính sách truy cập tài nguyên AWS | 08/06/2026 | 08/06/2026 | Tài liệu Onboarding nội bộ |
+| 3 | - Thiết lập môi trường máy trạm nhà phát triển (Python, Git, Docker, IDE plugins) <br> - Tìm hiểu tổng quan hạ tầng đám mây AWS và mô hình làm việc nhóm | 09/06/2026 | 09/06/2026 | Tài liệu AWS Training & Certification |
+| 4 | - Cấu hình IAM Developer User và chính sách phân quyền tối thiểu <br> - Cài đặt và cấu hình AWS CLI v2 tại region `ap-southeast-1` với credential profile riêng | 10/06/2026 | 10/06/2026 | <https://docs.aws.amazon.com/cli/> |
+| 5 | - Khảo sát các dịch vụ AWS Cloud cốt lõi: EC2, S3, DynamoDB, SageMaker, VPC <br> - Đọc tài liệu AWS Skill Builder về kiến trúc web application & ML trên Cloud | 11/06/2026 | 11/06/2026 | AWS Cloud Essentials |
+| 6 | - Khảo sát ban đầu về yêu cầu bài toán đề xuất phim dựa trên dữ liệu người dùng <br> - Xác minh kết nối môi trường AWS SDK thành công qua lệnh `aws sts get-caller-identity` | 12/06/2026 | 12/06/2026 | Tài liệu AWS CLI |
 
 ### Kết quả đạt được Tuần 1:
 
-* Thiết lập thành công môi trường máy trạm và xác minh xác thực AWS SDK qua `aws sts get-caller-identity`.
-* Hoàn thiện kiến trúc giải pháp 4 tầng cho hệ thống suy luận gợi ý thời gian thực trên AWS.
-* Hoàn thành văn bản **Proposal** (Mục 2) chính thức bao gồm tóm tắt dự án, bài toán, ma trận rủi ro và dự toán ngân sách.
+* Hoàn thành quy trình onboarding chương trình FCAJ và thiết lập thành công môi trường làm việc cá nhân.
+* Cấu hình an toàn AWS CLI v2 và IAM profile, xác minh kết nối thành công tới AWS Cloud (`ap-southeast-1`).
+* Nắm vững kiến thức nền tảng về các dịch vụ đám mây AWS cốt lõi phục vụ thiết kế kiến trúc hệ thống Machine Learning.

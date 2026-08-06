@@ -8,22 +8,22 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Objectives (Proposal Phase 1 & Phase 3 - Web Component):
 
-* Design UI/UX and build the streaming Web interface on Vite (React + TypeScript).
-* Build Register, Login, and Onboarding genre survey flows on Vite.
-* Build complete **Interaction Pipeline**: capture implicit user events (`click`, `watch`, `rate`, `like`) from Frontend and save to `UserInteractions` table on DynamoDB.
+* Build the FastAPI backend framework, Docker container environment, and AWS SDK dependency management layer (`app/container.py`).
+* Implement authentication flows: PBKDF2 password hashing, JWT session authentication (HS256), and genre survey onboarding.
+* Develop movie catalog display APIs to retrieve metadata from DynamoDB `Movies` and `PopularMovies` tables.
 
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Initialize Vite React/TypeScript frontend project structure and dark-mode styling tokens <br> - Build centralized `apiClient` service with auto JWT authorization header injection | 07/06/2026 | 07/06/2026 | Proposal Frontend Tech Specs |
-| 3 | - Build Register, Login, and User Profile UI components <br> - Implement Genre Onboarding modal allowing new users to select their favorite movie categories | 07/07/2026 | 07/07/2026 | Proposal Onboarding Flow |
-| 4 | - Build Movie Catalog grid, Movie Detail modal, and poster-based simulated playback player <br> - Connect Frontend state to backend `/api/v1/movies` metadata endpoints | 07/08/2026 | 07/08/2026 | Proposal Movie Detail Page |
-| 5 | - Implement backend `UserInteractionsRepository` and `InteractionService` <br> - Connect Frontend interaction handlers (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) to `/api/v1/interactions` route | 07/09/2026 | 07/09/2026 | Proposal Interaction Pipeline Spec |
-| 6 | - Configure `docker-compose.yml` to orchestrate React frontend (port 5173) and FastAPI backend (port 8000) <br> - Verify that interaction events write successfully into DynamoDB `UserInteractions` table | 07/10/2026 | 07/10/2026 | Proposal Docker Environment |
+| 2 | - Set up backend project structure, Docker containerization, and basic CI/CD foundation <br> - Initialize Pydantic configuration (`app/core/config.py`) and Boto3 AWS factory (`app/aws/infrastructure.py`) | 06/29/2026 | 06/29/2026 | Proposal Web Component Specs |
+| 3 | - Develop `PasswordHasher` class using PBKDF2-HMAC-SHA256 algorithm <br> - Develop `JWTService` class for signing, verifying, and managing access token expiration | 06/30/2026 | 06/30/2026 | FastAPI Security Guide |
+| 4 | - Implement DynamoDB repositories (`UsersRepository`, `MoviesRepository`, `PopularMoviesRepository`) <br> - Build authentication routes `/api/v1/auth/register`, `/login`, and `/me` | 07/01/2026 | 07/01/2026 | Proposal Authentication Requirements |
+| 5 | - Develop `/api/v1/auth/onboarding` endpoint to store genre preferences for newly registered users <br> - Build metadata endpoints `/api/v1/movies` to retrieve movie details from DynamoDB | 07/02/2026 | 07/02/2026 | Proposal Phase 3 Metadata APIs |
+| 6 | - Add startup health checks to verify AWS identity, DynamoDB schemas, and S3 access <br> - Write backend unit test suite using `unittest` to ensure strict API contract adherence | 07/03/2026 | 07/03/2026 | Python `unittest` Library |
 
 ### Week 4 Achievements:
 
-* Built modern, responsive Vite/React web application interface matching Proposal UI/UX requirements.
-* Implemented Register/Login flows and Onboarding genre selection for new users.
-* Successfully constructed the complete Interaction Pipeline, capturing 5 implicit user interaction types directly into DynamoDB `UserInteractions`.
-* Configured local container environment via `docker-compose.yml` for unified frontend and backend deployment testing.
+* Successfully built FastAPI backend architecture following the Presentation, Application, and Hot Data layer design.
+* Implemented secure user authentication system (PBKDF2 + JWT) verifying user credentials against DynamoDB `Users` table.
+* Completed movie metadata display APIs and guest browsing flow backed by DynamoDB `PopularMovies` and `Movies`.
+* Verified startup AWS resource integrity and passed all unit test suits.

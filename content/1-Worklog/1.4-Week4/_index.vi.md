@@ -8,22 +8,22 @@ pre: " <b> 1.4. </b> "
 
 ### Mục tiêu Tuần 4 (Proposal Giai đoạn 1 & Giai đoạn 3 - Web Component):
 
-* Thiết kế UI/UX cơ bản và xây dựng giao diện ứng dụng Web phim trên Vite (React + TypeScript).
-* Xây dựng các luồng Đăng ký, Đăng nhập và khảo sát thể loại Onboarding trên Vite.
-* Xây dựng **Interaction Pipeline** hoàn chỉnh: Thu thập các sự kiện tương tác (`click`, `watch`, `rate`, `like`) từ Frontend và lưu vào bảng `UserInteractions` trên DynamoDB.
+* Xây dựng khung ứng dụng backend FastAPI, môi trường Docker và tầng quản lý phụ thuộc AWS SDK (`app/container.py`).
+* Triển khai các luồng xác thực: Mã hóa mật khẩu PBKDF2, xác thực phiên làm việc JWT (HS256) và khảo sát thể loại onboarding.
+* Phát triển các API hiển thị danh mục phim để truy xuất metadata từ bảng DynamoDB `Movies` và `PopularMovies`.
 
 ### Công việc thực hiện trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Khởi tạo cấu trúc dự án Vite React/TypeScript frontend và hệ thống màu dark-mode <br> - Xây dựng service `apiClient` tập trung tự động chèn header xác thực JWT | 06/07/2026 | 06/07/2026 | Đặc tả Frontend trong Proposal |
-| 3 | - Xây dựng các component giao diện Đăng ký, Đăng nhập và trang Profile cá nhân <br> - Triển khai modal khảo sát Onboarding cho phép người dùng mới lựa chọn các thể loại phim yêu thích | 07/07/2026 | 07/07/2026 | Luồng Onboarding Proposal |
-| 4 | - Xây dựng lưới danh mục phim, modal Chi tiết phim và trình phát phim mô phỏng dựa trên poster <br> - Kết nối state Frontend với các API metadata `/api/v1/movies` của backend | 08/07/2026 | 08/07/2026 | Màn hình chi tiết phim Proposal |
-| 5 | - Triển khai backend `UserInteractionsRepository` và `InteractionService` <br> - Kết nối bộ xử lý tương tác Frontend (`click`, `watch >= 0.5`, `rate`, `like/dislike`, `share`) tới route `/api/v1/interactions` | 09/07/2026 | 09/07/2026 | Đặc tả Interaction Pipeline Proposal |
-| 6 | - Cấu hình `docker-compose.yml` đóng gói ứng dụng React frontend (port 5173) và FastAPI backend (port 8000) <br> - Kiểm thử xác minh các sự kiện tương tác lưu thành công vào bảng DynamoDB `UserInteractions` | 10/07/2026 | 10/07/2026 | Môi trường Docker Proposal |
+| 2 | - Thiết lập cấu trúc dự án backend, đóng gói Docker container và nền tảng CI/CD cơ bản <br> - Khởi tạo Pydantic configuration (`app/core/config.py`) và Boto3 AWS factory (`app/aws/infrastructure.py`) | 29/06/2026 | 29/06/2026 | Yêu cầu Web Component Proposal |
+| 3 | - Phát triển lớp `PasswordHasher` sử dụng thuật toán PBKDF2-HMAC-SHA256 <br> - Phát triển lớp `JWTService` thực hiện ký, xác thực và quản lý thời hạn access token | 30/06/2026 | 30/06/2026 | Hướng dẫn FastAPI Security |
+| 4 | - Triển khai các repository DynamoDB (`UsersRepository`, `MoviesRepository`, `PopularMoviesRepository`) <br> - Xây dựng các route `/api/v1/auth/register`, `/login` và `/me` | 01/07/2026 | 01/07/2026 | Yêu cầu xác thực trong Proposal |
+| 5 | - Phát triển endpoint `/api/v1/auth/onboarding` lưu sở thích thể loại cho người dùng mới đăng ký <br> - Xây dựng các endpoint metadata `/api/v1/movies` lấy thông tin chi tiết phim từ DynamoDB | 02/07/2026 | 02/07/2026 | API Metadata Giai đoạn 3 Proposal |
+| 6 | - Bổ sung các kiểm tra khởi động (health check) xác minh AWS identity, schema DynamoDB và quyền truy cập S3 <br> - Viết bộ unit test backend bằng `unittest` đảm bảo hợp đồng API chính xác | 03/07/2026 | 03/07/2026 | Thư viện Python `unittest` |
 
 ### Kết quả đạt được Tuần 4:
 
-* Xây dựng giao diện web Vite/React hiện đại, mượt mà đáp ứng đầy đủ yêu cầu UI/UX trong Proposal.
-* Hoàn thành các luồng Đăng ký/Đăng nhập và khảo sát thể loại Onboarding dành cho người dùng mới.
-* Xây dựng thành công Interaction Pipeline thu thập đủ 5 loại tương tác ngầm định lưu trực tiếp vào DynamoDB `UserInteractions`.
-* Đóng gói thành công môi trường container cục bộ bằng `docker-compose.yml` phục vụ kiểm thử tích hợp.
+* Xây dựng thành công kiến trúc backend FastAPI tuân thủ mô hình Presentation, Application và Hot Data layer trong Proposal.
+* Triển khai hệ thống xác thực người dùng an toàn (PBKDF2 + JWT) kiểm tra dữ liệu trên bảng DynamoDB `Users`.
+* Hoàn thành các API hiển thị metadata phim và luồng duyệt phim dành cho khách từ `PopularMovies` và `Movies`.
+* Xác minh thành công tính hợp lệ của tài nguyên AWS khi khởi động và vượt qua toàn bộ bộ unit test.

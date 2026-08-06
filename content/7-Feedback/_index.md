@@ -22,7 +22,7 @@ My mentor provided invaluable architectural guidance, explained complex cloud co
 The project assignments aligned perfectly with my Computer Science major (Data Structures, Algorithms, System Design, Software Engineering), while expanding my knowledge into production-grade cloud architectures (Amazon SageMaker, DynamoDB, VPC, EC2, GitHub Actions CI/CD). This bridged the gap between academic theory and industry practices.
 
 **4. Learning & Skill Development Opportunities**  
-Throughout the 7-week internship, I gained hands-on experience building end-to-end Machine Learning pipelines, RESTful microservice backend engineering, container orchestration, infrastructure cost management, and technical documentation. Participating in community technical meetups and the AI Agent Build Week hackathon further enriched my skills.
+Throughout the 8-week internship, I gained hands-on experience building end-to-end Machine Learning pipelines, RESTful microservice backend engineering, container orchestration, infrastructure cost management, and technical documentation. Participating in community technical meetups and the AI Agent Build Week hackathon further enriched my skills.
 
 **5. Company Culture & Team Spirit**  
 The culture is built on high mutual respect, innovation, and strong team spirit. When facing critical deadlines or complex integration tasks, everyone collaborated seamlessly. Being treated as an equal technical contributor made me feel truly valued as part of the AWS community.

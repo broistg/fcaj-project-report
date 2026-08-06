@@ -22,7 +22,7 @@ Mentor hướng dẫn rất tận tình, giải thích cặn kẽ các khái ni�
 Dự án được giao hoàn toàn phù hợp với chuyên ngành Khoa học Máy tính (Cấu trúc dữ liệu, Thuật toán, Thiết kế Hệ thống, Công nghệ Phần mềm), đồng thời mở rộng thêm các mảng kiến thức Cloud chuẩn sản xuất (Amazon SageMaker, DynamoDB, VPC, EC2, CI/CD). Điều này giúp em rút ngắn khoảng cách giữa lý thuyết tại trường và thực tế doanh nghiệp.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong 7 tuần thực tập, em đã tích lũy được nhiều kinh nghiệm thực chiến từ việc xây dựng pipeline Machine Learning end-to-end, phát triển backend microservices RESTful, đóng gói container, quản trị chi phí hạ tầng đến viết tài liệu báo cáo kỹ thuật. Việc tham gia các buổi Meetup cộng đồng và đợt review Hackathon AI Agent cũng giúp em mở rộng đáng kể tư duy công nghệ.
+Trong 8 tuần thực tập, em đã tích lũy được nhiều kinh nghiệm thực chiến từ việc xây dựng pipeline Machine Learning end-to-end, phát triển backend microservices RESTful, đóng gói container, quản trị chi phí hạ tầng đến viết tài liệu báo cáo kỹ thuật. Việc tham gia các buổi Meetup cộng đồng và đợt review Hackathon AI Agent cũng giúp em mở rộng đáng kể tư duy công nghệ.
 
 **5. Văn hóa & tinh thần đồng đội**  
 Văn hóa làm việc đề cao sự tôn trọng lẫn nhau, tính sáng tạo và tinh thần đồng đội cao. Khi gặp các bài toán khó hoặc deadline gấp, mọi người cùng nhau thảo luận và hỗ trợ tích cực. Điều này giúp em cảm thấy mình thực sự là một phần của tập thể và được ghi nhận như một kỹ sư công nghệ.

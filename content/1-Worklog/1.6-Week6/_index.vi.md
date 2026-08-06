@@ -6,24 +6,24 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Mục tiêu Tuần 6 (Proposal Giai đoạn 4 - Tích hợp hệ thống & Triển khai Cloud):
+### Mục tiêu Tuần 6 (Proposal Giai đoạn 3 - Machine Learning Component):
 
-* Tích hợp mô hình Machine Learning vào quy trình Backend: Xây dựng POST API gợi ý (`/api/v1/recommend`) định tuyến request từ Frontend tới server dự đoán.
-* Đóng gói mô hình AI và tích hợp với **SageMaker Real-time Endpoint** (`InvokeEndpoint`) phục vụ dự đoán 24/7 độ trễ siêu thấp kèm cơ chế fallback DynamoDB `RecommendationCache`.
-* Thiết lập tự động hóa quy trình tái huấn luyện định kỳ qua **SageMaker Processing Jobs** và triển khai container ứng dụng lên Amazon EC2 qua GitHub Actions CI/CD.
+* Xây dựng mô hình **Popularity Ranker** cho khách chưa đăng nhập và **Content-Based Recommender** cho người dùng mới.
+* Phát triển mô hình cốt lõi **Collaborative Filtering** (Implicit ALS), chuyển đổi các sự kiện tương tác thành điểm số có trọng số.
+* Triển khai thuật toán **Hybrid RRF** kết hợp các luồng ứng viên, xây dựng pipeline đánh giá offline và thiết lập **Promotion Gate** tự động.
 
 ### Công việc thực hiện trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Xây dựng route POST API gợi ý backend (`/api/v1/recommend/{user_id}`) xử lý kịch bản (`onboarding_user`, `returning_user`) <br> - Phát triển `SageMakerRecommendationProvider` gọi `boto3.client('sagemaker-runtime')` | 20/07/2026 | 20/07/2026 | Tích hợp Giai đoạn 4 Proposal |
-| 3 | - Cấu hình tích hợp SageMaker Real-time Endpoint (cấu hình `ml.m5.xlarge`) phục vụ dự đoán thời gian thực 24/7 <br> - Triển khai cơ chế fallback tự động: khi Endpoint quá tải/không khả dụng, tự động chuyển về đọc `RecommendationCache` / `PopularMovies` từ DynamoDB | 21/07/2026 | 21/07/2026 | Đặc tả SageMaker Endpoint Proposal |
-| 4 | - Tự động hóa quy trình tái huấn luyện mô hình bằng SageMaker Processing Jobs (`scripts/run_processing_job.py`) đọc dữ liệu tương tác lịch sử từ S3 | 22/07/2026 | 22/07/2026 | Tự động hóa Retrain Proposal |
-| 5 | - Triển khai Amazon EC2 (`t3.micro`) trong Public Subnet của VPC mặc định kèm IAM Instance Profile <br> - Viết workflow GitHub Actions (`.github/workflows/deploy.yml`) thực thi SSH deploy và `docker compose up -d` | 23/07/2026 | 23/07/2026 | Triển khai EC2 & CI/CD Proposal |
-| 6 | - Kiểm thử tích hợp hệ thống xác minh kết nối giữa container EC2 với SageMaker Endpoint, DynamoDB và S3 | 24/07/2026 | 24/07/2026 | Kiểm thử tích hợp Proposal |
+| 2 | - Phát triển `PopularityRecommender` (công thức trọng số IMDb) cho khách chưa đăng nhập <br> - Phát triển `ContentRecommender` sử dụng trích xuất đặc trưng TF-IDF & độ tương đồng cosine | 13/07/2026 | 13/07/2026 | Đặc tả Popularity & Content Proposal |
+| 3 | - Phát triển mô hình cốt lõi `ImplicitALSRecommender` (phân rã ma trận `implicit`) chuyển đổi tương tác người dùng thành ma trận điểm trọng số | 14/07/2026 | 14/07/2026 | Đặc tả Collaborative Filtering Proposal |
+| 4 | - Triển khai `HybridRecommender` kết hợp Collaborative ALS, Content-Based và Popularity Fallback bằng thuật toán Weighted Reciprocal Rank Fusion (RRF) | 15/07/2026 | 15/07/2026 | Thuật toán Weighted RRF Proposal |
+| 5 | - Xây dựng pipeline đánh giá định lượng offline (`evaluate.py`) đo lường HitRate@10, NDCG@10, độ phủ danh mục và độ đa dạng gợi ý | 16/07/2026 | 16/07/2026 | Chỉ số Information Retrieval |
+| 6 | - Phát triển module **Promotion Gate** tự động (`promote.py`) đảm bảo 3 điều kiện: >1000 user được chấm điểm, vượt Popularity Baseline, giảm không quá 5% độ chính xác <br> - Đồng bộ trọng số mô hình và con trỏ phiên bản `LATEST.json` lên S3 | 17/07/2026 | 17/07/2026 | Cổng kiểm duyệt tự động Proposal |
 
 ### Kết quả đạt được Tuần 6:
 
-* Xây dựng API tích hợp gợi ý backend định tuyến mượt mà giữa ứng dụng React frontend và server dự đoán.
-* Tích hợp thành công SageMaker Real-time Endpoint phục vụ gợi ý độ trễ thấp kèm cơ chế fallback DynamoDB an toàn.
-* Tự động hóa các tác vụ tái huấn luyện mô hình định kỳ bằng SageMaker Processing Jobs.
-* Cấu hình pipeline CI/CD GitHub Actions tự động triển khai ứng dụng lên server Amazon EC2 thông qua SSH.
+* Xây dựng thành công cả 4 thuật toán gợi ý theo yêu cầu Giai đoạn 3 trong Proposal: Popularity, Content-Based, Implicit ALS và Hybrid Weighted RRF.
+* Hoàn thành đánh giá định lượng trên 5.000 user test: Collaborative ALS đạt HitRate@10 = 0.1115 (tăng +235.8% so với baseline); mô hình Hybrid đạt HitRate@10 = 0.0818 (tăng +146.4% so với baseline) với độ phủ 17.85%.
+* Giải quyết triệt để sự cố Cold-start cho người dùng mới nhờ tầng Fallback toàn cục trong mô hình Hybrid RRF.
+* Triển khai logic Promotion Gate tự động kiểm tra mô hình trước khi xuất artifact lên S3.
