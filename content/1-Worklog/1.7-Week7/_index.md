@@ -6,24 +6,23 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-### Week 7 Objectives (Proposal Phase 4 - System Integration & Cloud Deployment):
+### Week 7 Objectives (Proposal Phase 4 - SageMaker Endpoint Deployment & Automated Retraining):
 
-* Integrate Machine Learning models into Backend workflow: Construct recommendation POST API (`/api/v1/recommend`) routing requests from Frontend to prediction server.
-* Package AI models and integrate with **SageMaker Real-time Endpoint** (`InvokeEndpoint`) serving ultra-low latency 24/7 predictions backed by DynamoDB `RecommendationCache` fallback.
-* Automate periodic model retraining via **SageMaker Processing Jobs** and deploy application containers to Amazon EC2 via GitHub Actions CI/CD.
+* Package Machine Learning models into `model.tar.gz` artifacts attached with custom inference handler script (`inference.py`).
+* Deploy production **Amazon SageMaker Real-time Endpoint** (`ml.m5.xlarge` instance) serving 24/7 low-latency recommendation predictions.
+* Implement `SageMakerRecommendationProvider` seamlessly connecting SageMaker inference with Backend applications, and automate periodic retraining workflows via **SageMaker Processing Jobs**.
 
-### Tasks to be carried out this week:
+### Tasks Completed During the Week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Build backend recommendation POST API route (`/api/v1/recommend/{user_id}`) handling scenarios (`onboarding_user`, `returning_user`) <br> - Develop `SageMakerRecommendationProvider` calling `boto3.client('sagemaker-runtime')` | 07/20/2026 | 07/20/2026 | Proposal Phase 4 Integration |
-| 3 | - Configure SageMaker Real-time Endpoint integration (`ml.m5.xlarge` instance) serving real-time 24/7 predictions <br> - Implement automated fallback logic: when Endpoint is overloaded/unavailable, automatically fallback to DynamoDB `RecommendationCache` / `PopularMovies` | 07/21/2026 | 07/21/2026 | Proposal SageMaker Endpoint Specs |
-| 4 | - Automate model retraining process using SageMaker Processing Jobs (`scripts/run_processing_job.py`) reading historical interactions from S3 | 07/22/2026 | 07/22/2026 | Proposal Automated Retraining |
-| 5 | - Provision Amazon EC2 (`t3.micro`) in Public Subnet of default VPC attached with IAM Instance Profile <br> - Write GitHub Actions workflow (`.github/workflows/deploy.yml`) executing SSH deploy and `docker compose up -d` | 07/23/2026 | 07/23/2026 | Proposal EC2 Deployment & CI/CD |
-| 6 | - System integration testing verifying connectivity between EC2 containers, SageMaker Endpoint, DynamoDB, and S3 | 07/24/2026 | 07/24/2026 | Proposal Integration Testing |
+| 2 | - Package model weights and custom inference script `inference.py` (`model_fn`, `predict_fn`, `output_fn`) into `model.tar.gz` archive uploaded to S3 prefix `models/` <br> - Write custom inference handler | 07/20/2026 | 07/20/2026 | SageMaker Inference Developer Guide |
+| 3 | - Deploy production **Amazon SageMaker Endpoint** (`ml.m5.xlarge` instance) serving real-time 24/7 recommendation predictions <br> - Guarantee <50ms prediction response latency | 07/21/2026 | 07/21/2026 | Proposal SageMaker Endpoint Specs |
+| 4 | - Develop `SageMakerRecommendationProvider` class implementing `BaseRecommendationProvider` interface calling `boto3.client('sagemaker-runtime')` <br> - Streamline prediction request/response JSON payload | 07/22/2026 | 07/22/2026 | Backend & ML Provider Integration |
+| 5 | - Automate periodic model retraining workflow using **SageMaker Processing Jobs** (`scripts/run_processing_job.py`) executing SKLearn/PyTorch containers <br> - Read historical interactions from S3 to run `preprocess.py`, `train.py`, `evaluate.py`, `promote.py` | 07/23/2026 | 07/23/2026 | Proposal Automated Retraining |
+| 6 | - System ML integration testing verifying instant predictions from SageMaker Endpoint <br> - Validate automated retraining workflow and `LATEST.json` version pointer updates upon new interaction data ingestion | 07/24/2026 | 07/24/2026 | ML Pipeline Integration Test |
 
 ### Week 7 Achievements:
 
-* Built integrated recommendation backend API smoothly routing requests between React frontend and prediction server.
-* Successfully integrated SageMaker Real-time Endpoint serving low-latency predictions with safe DynamoDB fallback mechanisms.
-* Automated periodic model retraining tasks using SageMaker Processing Jobs.
-* Configured GitHub Actions CI/CD pipeline automatically deploying application updates to Amazon EC2 server over SSH.
+* Successfully deployed production 24/7 SageMaker Real-time Endpoint (`ml.m5.xlarge`) serving low-latency movie predictions.
+* Developed `SageMakerRecommendationProvider` smoothly connecting the SageMaker inference server with Backend services.
+* Fully automated periodic model retraining workflows via SageMaker Processing Jobs with automated Promotion Gate checks.

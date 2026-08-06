@@ -6,24 +6,24 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-### Mục tiêu Tuần 8 (Proposal Giai đoạn 5 - Kiểm thử & Tối ưu hóa):
+### Mục tiêu Tuần 8 (Proposal Giai đoạn 5 - ML System Testing, Fallback Verification & Report Finalization):
 
-* Rà soát toàn bộ hệ thống trên 3 kịch bản người dùng chính (Khách duyệt phim, Người dùng mới onboarding, Người dùng quay lại nhận gợi ý), xử lý lỗi và đo lường hiệu suất thực tế.
-* Tối ưu hóa thời gian tải trang, tốc độ truy vấn DynamoDB và hiệu quả sử dụng cache gợi ý.
-* Giám sát chi phí AWS so với các hạn mức ngân sách ($91.34/tháng dự toán) và hoàn thiện tài liệu Workshop (Mục 5) & báo cáo thực tập cá nhân.
+* Kiểm thử toàn bộ hệ thống ML trên 3 kịch bản người dùng (Khách chưa đăng nhập, Người dùng mới chọn thể loại onboarding, Người dùng quay lại nhận gợi ý cá nhân hóa).
+* Kiểm thử và xác minh cơ chế Fallback an toàn (DynamoDB `RecommendationCache` / `PopularMovies`) khi SageMaker Endpoint quá tải hoặc đứt kết nối.
+* Tối ưu hóa độ trễ suy luận, giám sát ngân sách AWS SageMaker ($91.34/tháng) và hoàn thiện tài liệu Workshop (Mục 5) & Báo cáo thực tập cá nhân Kỹ sư Machine Learning.
 
-### Công việc thực hiện trong tuần:
+### Công việc đã hoàn thành trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Rà soát toàn bộ hệ thống qua các kịch bản: Khách chưa đăng nhập, Người dùng mới chọn thể loại onboarding và Khách quay lại nhận gợi ý cá nhân hóa <br> - Kiểm thử cơ chế fallback: xác minh hệ thống tự động chuyển về đọc `PopularMovies` từ DynamoDB nếu SageMaker endpoint tắt | 27/07/2026 | 27/07/2026 | Đặc tả Kiểm thử & Fallback Proposal |
-| 3 | - Đo lường hiệu suất thực tế: tối ưu thời gian tải trang Vite, độ trễ truy vấn batch DynamoDB (`BatchGetItem`) và thời gian sống cache <br> - Kiểm tra tính toàn vẹn dữ liệu: đảm bảo mọi movie ID mô hình gợi ý ra đều tồn tại trong bảng DynamoDB `Movies` | 28/07/2026 | 28/07/2026 | Tối ưu hiệu năng Proposal |
-| 4 | - Kiểm tra giám sát chi phí AWS: xác minh cảnh báo AWS Budgets (ngưỡng 50% và 75%) và quy tắc S3 Lifecycle Rules (tự động xóa trọng số mô hình cũ sau 30 ngày) <br> - Rà soát chính sách IAM tối thiểu và log group CloudWatch | 29/07/2026 | 29/07/2026 | Giảm thiểu rủi ro & Ngân sách Proposal |
-| 5 | - Cập nhật Sơ đồ Kiến trúc hệ thống (v2.0 / `diagram.png`) thể hiện VPC, EC2, DynamoDB, S3, SageMaker, IAM, CloudWatch và AWS Budgets <br> - Soạn thảo hoàn thiện tài liệu Workshop (từ Mục 5.1 đến 5.6) cho cả bản tiếng Anh và tiếng Việt | 30/07/2026 | 30/07/2026 | Tài liệu Workshop Mục 5 |
-| 6 | - Hoàn thành Nhật ký công việc cá nhân (Tuần 1 đến Tuần 8), kiểm tra build site Hugo cục bộ, xóa các thông báo cảnh báo và xuất bản báo cáo | 31/07/2026 | 31/07/2026 | Hoàn thiện Báo cáo cá nhân |
+| 2 | - Rà soát toàn bộ hệ thống ML qua 3 kịch bản: Khách chưa đăng nhập (Popularity Ranker), Người dùng mới onboarding (Content-Based), và Người dùng quay lại (Implicit ALS / Hybrid RRF via SageMaker Endpoint) <br> - Đo lường chất lượng danh sách gợi ý | 27/07/2026 | 27/07/2026 | Kiểm thử Kịch bản ML |
+| 3 | - Kiểm thử cơ chế Fallback an toàn: giả lập tắt SageMaker Endpoint hoặc đứt kết nối mạng <br> - Xác minh backend tự động chuyển sang đọc `RecommendationCache` và `PopularMovies` từ DynamoDB mà không gây gián đoạn trải nghiệm người dùng | 28/07/2026 | 28/07/2026 | Đặc tả Fallback Dự phòng Proposal |
+| 4 | - Đo lường và tối ưu độ trễ suy luận ML: tối ưu kích thước payload JSON request/response, cache kết quả gợi ý ngắn hạn trong DynamoDB `RecommendationCache` <br> - Kiểm tra tính toàn vẹn Movie ID giữa mô hình ML và catalog database | 29/07/2026 | 29/07/2026 | Tối ưu Hiệu năng ML Inference |
+| 5 | - Giám sát ngân sách AWS SageMaker: kiểm tra các ngưỡng cảnh báo AWS Budgets ($91.34/tháng) <br> - Xác minh S3 Lifecycle Rules tự động xóa các tệp trọng số mô hình cũ sau 30 ngày để chống bùng nổ chi phí lưu trữ ngầm | 30/07/2026 | 30/07/2026 | Quản trị Chi phí Cloud Proposal |
+| 6 | - Cập nhật sơ đồ kiến trúc ML v2.0, hoàn thiện tài liệu Workshop (từ Mục 5.1 đến 5.6) cho cả bản tiếng Anh và tiếng Việt <br> - Hoàn thành Nhật ký công việc cá nhân Kỹ sư Machine Learning (Tuần 1 đến Tuần 8) và xuất bản báo cáo | 31/07/2026 | 31/07/2026 | Hoàn thiện Báo cáo ML Engineer |
 
 ### Kết quả đạt được Tuần 8:
 
-* Rà soát thành công toàn bộ hệ thống trên tất cả kịch bản người dùng, chứng minh khả năng cá nhân hóa tức thời qua SageMaker Real-time Endpoints.
-* Tối ưu hóa thời gian tải trang và tốc độ truy vấn DynamoDB đồng thời đảm bảo tính toàn vẹn dữ liệu giữa mô hình và database.
-* Xác minh thành công các hạn mức ngân sách AWS Budgets ($91.34/tháng) và quy tắc S3 Lifecycle Rules giúp ngăn ngừa rủi ro bùng nổ chi phí.
-* Hoàn thành báo cáo thực tập cá nhân (`fcaj-project-report`), đồng bộ tài liệu Workshop, xóa các ghi chú warning mẫu và xuất bản báo cáo.
+* Kiểm thử thành công toàn bộ hệ thống suy luận gợi ý ML trên cả 3 kịch bản người dùng thực tế.
+* Xác minh tính hoạt động ổn định của cơ chế Fallback an toàn qua DynamoDB `RecommendationCache` và `PopularMovies`.
+* Tối ưu hóa độ trễ phản hồi suy luận ML, đảm bảo tính toàn vẹn dữ liệu Movie ID và xác minh hạn mức ngân sách AWS Budgets ($91.34/tháng).
+* Hoàn thành toàn bộ báo cáo thực tập cá nhân Kỹ sư Machine Learning (`fcaj-project-report`), tài liệu Workshop Mục 5 và xuất bản báo cáo chính thức.
